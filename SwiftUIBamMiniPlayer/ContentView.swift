@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        PlayerWebView(url: "https://www.apple.com/")
+        PlayerWebView(url: "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true")
+            .frame(width: 200, height: 300)
+            .cornerRadius(10)
     }
 }
 

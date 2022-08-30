@@ -22,7 +22,11 @@ struct PlayerWebView: UIViewRepresentable {
     /// 表示するViewのインスタンスを生成
     /// SwiftUIで使用するUIKitのViewを返す
     func makeUIView(context: Context) -> WKWebView {
-        WKWebView()
+        let configuration = WKWebViewConfiguration()
+            configuration.allowsInlineMediaPlayback = true
+        
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+            return webView
     }
     
     // MARK: - UIViewRepresentable
