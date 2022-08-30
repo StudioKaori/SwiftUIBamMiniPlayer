@@ -42,7 +42,14 @@ struct PlayerWebView: UIViewRepresentable {
         }
         
         /// URLを指定してWebページを読み込み
-        uiView.load(URLRequest(url: URL(string: url)!))
+        ///  if url remains the same, meaning the component updated by drag gesture. that case, not re-load the url
+        print("Updated, url", uiView.url ?? "")
+        if uiView.url != URL(string: url)! {
+            uiView.load(URLRequest(url: URL(string: url)!))
+        }
+        
+
+        
     }
 }
 

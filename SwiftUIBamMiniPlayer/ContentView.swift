@@ -15,7 +15,8 @@ struct ContentView: View {
             .frame(width: 200, height: 300)
             .cornerRadius(10)
             .position(location)
-                            .gesture(DragGesture().onChanged({ value in self.location = value.location}))
+            .gesture(DragGesture().onChanged({ value in self.location = value.location
+            }))
     }
 }
 
