@@ -11,16 +11,17 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: - Properties
-    @State private var location: CGPoint = CGPoint(x: 0, y: 0)
+    @State private var location: CGPoint = CGPoint(x: miniPlayerWidth/2, y: miniPlayerHeight/2)
     @State private var isPlayerMinimised: Bool = false
     
-    private let miniPlayerWidth: CGFloat = 200
-    private let miniPlayerHeight: CGFloat = 300
+    private let playerUrl: String = "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true"
+    
+
     
     // MARK: - Body
     var body: some View {
         ZStack {
-            PlayerWebView(url: "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true")
+            PlayerWebView(url: playerUrl)
                 .frame(width: isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
                 .cornerRadius(isPlayerMinimised ? 10 : 0)
                 .position(isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
@@ -31,7 +32,14 @@ struct ContentView: View {
             Button(action: {
                 isPlayerMinimised.toggle()
             }, label: {
-                Text("Minimise the player")
+                Text("Toggle the player size")
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(.pink)
+                    .cornerRadius(20)
+//                    .position(x: 200, y: UIScreen.main.bounds.height - 300)
+                
             })
         }
     }
