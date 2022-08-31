@@ -22,8 +22,14 @@ struct PlayerWebView: UIViewRepresentable {
     /// 表示するViewのインスタンスを生成
     /// SwiftUIで使用するUIKitのViewを返す
     func makeUIView(context: Context) -> WKWebView {
+        
+        // For playing video inline
         let configuration = WKWebViewConfiguration()
             configuration.allowsInlineMediaPlayback = true
+        
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        let handler =
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
             return webView
@@ -56,4 +62,11 @@ struct PlayerWebView: UIViewRepresentable {
 // MARK:  WKWebViewのURLが変わったこと（WebView内画面遷移）を検知するための `ObservableObject`
 private class WebViewURLObservable: ObservableObject {
     @Published var instance: NSKeyValueObservation?
+}
+
+// MARK: - Javascript message handler
+class MessageHandler: NSObject, WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(message.body)
+    }
 }
