@@ -14,13 +14,14 @@ struct ContentView: View {
     @State private var location: CGPoint = CGPoint(x: 0, y: 0)
     @State private var isPlayerMinimised: Bool = false
     
-    
+    private let miniPlayerWidth: CGFloat = 200
+    private let miniPlayerHeight: CGFloat = 300
     
     // MARK: - Body
     var body: some View {
         ZStack {
             PlayerWebView(url: "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true")
-                .frame(width: isPlayerMinimised ? 200 : UIScreen.main.bounds.width, height: isPlayerMinimised ? 300 : UIScreen.main.bounds.height)
+                .frame(width: isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
                 .cornerRadius(isPlayerMinimised ? 10 : 0)
                 .position(isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
                 .gesture(DragGesture().onChanged({ value in self.location = value.location
