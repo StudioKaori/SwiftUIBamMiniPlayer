@@ -18,11 +18,12 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             PlayerWebView(url: "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true")
-                .frame(width: isPlayerMinimised ? 200 : 400, height: isPlayerMinimised ? 300 : 600)
+                .frame(width: isPlayerMinimised ? 200 : UIScreen.main.bounds.width, height: isPlayerMinimised ? 300 : UIScreen.main.bounds.height)
                 .cornerRadius(isPlayerMinimised ? 10 : 0)
-                .position(isPlayerMinimised ? location : CGPoint(x: 0, y: 0))
+                .position(isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
                 .gesture(DragGesture().onChanged({ value in self.location = value.location
                 }))
+                .ignoresSafeArea()
             
             
         }
