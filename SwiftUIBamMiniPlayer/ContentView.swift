@@ -7,16 +7,25 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    // MARK: - Properties
     @State private var location: CGPoint = CGPoint(x: 0, y: 0)
+    @State private var isPlayerMinimised: Bool = false
     
+    // MARK: - Body
     var body: some View {
-        PlayerWebView(url: "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true")
-            .frame(width: 200, height: 300)
-            .cornerRadius(10)
-            .position(location)
-            .gesture(DragGesture().onChanged({ value in self.location = value.location
-            }))
+        ZStack {
+            PlayerWebView(url: "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true")
+                .frame(width: isPlayerMinimised ? 200 : 400, height: isPlayerMinimised ? 300 : 600)
+                .cornerRadius(isPlayerMinimised ? 10 : 0)
+                .position(isPlayerMinimised ? location : CGPoint(x: 0, y: 0))
+                .gesture(DragGesture().onChanged({ value in self.location = value.location
+                }))
+            
+            
+        }
     }
 }
 
@@ -25,3 +34,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
