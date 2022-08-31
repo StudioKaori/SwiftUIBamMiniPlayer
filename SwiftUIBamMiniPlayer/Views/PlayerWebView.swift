@@ -13,49 +13,49 @@ struct PlayerWebView: UIViewRepresentable {
     let url: String
     private let observable = WebViewURLObservable()
     
-    /// 監視する対象を指定して値の変化を検知する
+    // Observe the target's value change
     var observer: NSKeyValueObservation? {
         observable.instance
     }
     
     // MARK: - UIViewRepresentable
-    /// 表示するViewのインスタンスを生成
-    /// SwiftUIで使用するUIKitのViewを返す
+    // Create view instance and returns UIKit view
     func makeUIView(context: Context) -> WKWebView {
         
         // For playing video inline
         let configuration = WKWebViewConfiguration()
-            configuration.allowsInlineMediaPlayback = true
+        configuration.allowsInlineMediaPlayback = true
         
+        // To enable Javascript
         let preferences = WKWebpagePreferences()
         preferences.allowsContentJavaScript = true
+        
+        // Javascript post message handler
         let handler = MessageHandler()
-        configuration.userContentController.add(handler, name: "jsMessange")
+        configuration.userContentController.add(handler, name: "jsMessage")
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
-            return webView
+        return webView
     }
     
     // MARK: - UIViewRepresentable
-    /// アプリの状態が更新される場合に呼ばる
-    /// Viewの更新処理はこのメソッドに記述する
+    // When UIView is updated, the method is called
     func updateUIView(_ uiView: WKWebView, context: Context) {
-
-        /// WKWebViewのURLが変わったこと（WebView内画面遷移）を検知して、URLをログ出力する
+        
+        // Log the WKWebView's URL
         observable.instance = uiView.observe(\WKWebView.url, options: .new) { view, change in
             if let url = view.url {
                 print("Page URL: \(url)")
             }
         }
         
-        /// URLを指定してWebページを読み込み
-        ///  if url remains the same, meaning the component updated by drag gesture. that case, not re-load the url
-        print("Updated, url", uiView.url ?? "")
+        // if url remains the same, meaning the component updated by drag gesture. that case, not re-load the url
+        //print("Updated, url", uiView.url ?? "")
         if uiView.url != URL(string: url)! {
             uiView.load(URLRequest(url: URL(string: url)!))
         }
         
-
+        
         
     }
 }
