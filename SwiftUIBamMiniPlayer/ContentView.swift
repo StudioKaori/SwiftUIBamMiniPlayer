@@ -14,6 +14,8 @@ struct ContentView: View {
     @State private var location: CGPoint = CGPoint(x: 0, y: 0)
     @State private var isPlayerMinimised: Bool = false
     
+    
+    
     // MARK: - Body
     var body: some View {
         ZStack {
@@ -25,7 +27,11 @@ struct ContentView: View {
                 }))
                 .ignoresSafeArea()
             
-            
+            Button(action: {
+                isPlayerMinimised.toggle()
+            }, label: {
+                Text("Minimise the player")
+            })
         }
     }
 }
