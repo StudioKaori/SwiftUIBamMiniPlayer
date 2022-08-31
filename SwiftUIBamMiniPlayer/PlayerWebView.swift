@@ -27,9 +27,10 @@ struct PlayerWebView: UIViewRepresentable {
         let configuration = WKWebViewConfiguration()
             configuration.allowsInlineMediaPlayback = true
         
-        let preferences = WKPreferences()
-        preferences.javaScriptEnabled = true
-        let handler =
+        let preferences = WKWebpagePreferences()
+        preferences.allowsContentJavaScript = true
+        let handler = MessageHandler()
+        configuration.userContentController.add(handler, name: "jsMessange")
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
             return webView
