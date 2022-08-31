@@ -41,6 +41,7 @@ struct ContentView: View {
                     .padding()
                     .background(.pink)
                     .cornerRadius(20)
+                // if I use position, somehow all the display area reacts as a button, so it should be comment out.
                 //                    .position(x: 200, y: UIScreen.main.bounds.height - 300)
                 
             })
