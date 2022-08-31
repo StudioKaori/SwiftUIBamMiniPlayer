@@ -16,18 +16,21 @@ struct ContentView: View {
     
     private let playerUrl: String = "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true"
     
-
+    
     
     // MARK: - Body
     var body: some View {
         ZStack {
             PlayerWebView(url: playerUrl)
-                .frame(width: isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
-                .cornerRadius(isPlayerMinimised ? 10 : 0)
-                .position(isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
-                .gesture(DragGesture().onChanged({ value in self.location = value.location
-                }))
-                .ignoresSafeArea()
+            .frame(width: isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
+            .cornerRadius(isPlayerMinimised ? 10 : 0)
+            .position(isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
+            .gesture(DragGesture().onChanged({ value in self.location = value.location
+            }))
+            .onTapGesture {
+                if isPlayerMinimised {isPlayerMinimised = false}
+            }
+            .ignoresSafeArea()
             
             Button(action: {
                 isPlayerMinimised.toggle()
@@ -38,7 +41,7 @@ struct ContentView: View {
                     .padding()
                     .background(.pink)
                     .cornerRadius(20)
-//                    .position(x: 200, y: UIScreen.main.bounds.height - 300)
+                //                    .position(x: 200, y: UIScreen.main.bounds.height - 300)
                 
             })
         }
