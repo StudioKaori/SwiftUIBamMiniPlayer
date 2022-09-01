@@ -15,7 +15,8 @@ struct ProductPageView: View {
         Button(action: {
             self.observablePlayerState.isPlayerViewVisible.toggle()
         }, label: {
-            Text("Toggle")
+            Text(self.observablePlayerState.isPlayerViewVisible ? "Close the player" : "Open the player")
+            
         })
     }
 }
