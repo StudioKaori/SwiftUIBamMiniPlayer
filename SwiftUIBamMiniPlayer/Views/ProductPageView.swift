@@ -24,5 +24,6 @@ struct ProductPageView: View {
 struct ProductPageView_Previews: PreviewProvider {
     static var previews: some View {
         ProductPageView()
+            .environmentObject(ObservablePlayerState())
     }
 }
