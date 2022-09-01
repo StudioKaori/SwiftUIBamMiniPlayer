@@ -35,6 +35,20 @@ struct PlayerWebView: UIViewRepresentable {
         configuration.userContentController.add(handler, name: "bambuserEventHandler")
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
+        
+        // load local player.html
+        let theFileName = ("player" as NSString).lastPathComponent
+        let htmlPath = Bundle.main.path(forResource: theFileName, ofType: "html")
+        let folderPath = Bundle.main.bundlePath
+        let baseUrl = URL(fileURLWithPath: folderPath, isDirectory: true)
+        
+        do {
+            let htmlString = try NSString(contentsOfFile: htmlPath!, encoding: String.Encoding.utf8.rawValue)
+            webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
+        } catch {
+            // catch error
+        }
+        
         return webView
     }
     
@@ -51,9 +65,9 @@ struct PlayerWebView: UIViewRepresentable {
         
         // if url remains the same, meaning the component updated by drag gesture. that case, not re-load the url
         //print("Updated, url", uiView.url ?? "")
-        if uiView.url != URL(string: url)! {
-            uiView.load(URLRequest(url: URL(string: url)!))
-        }
+        //        if uiView.url != URL(string: url)! {
+        //            uiView.load(URLRequest(url: URL(string: url)!))
+        //        }
         
         
         
@@ -68,14 +82,15 @@ private class WebViewURLObservable: ObservableObject {
 // MARK: - Javascript message handler
 class MessageHandler: NSObject, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard message.name == "bambuserEventHandler" else {
-            print("No handler for this message: \(message)")
-            return
-        }
-        
-        guard let body = message.body as? [String: Any] else {
-            print("could not convert message body to dictionary: \(message.body)")
-            return
-        }
+        print(message.body)
+        //        guard message.name == "bambuserEventHandler" else {
+        //            print("No handler for this message: \(message)")
+        //            return
+        //        }
+        //
+        //        guard let body = message.body as? [String: Any] else {
+        //            print("could not convert message body to dictionary: \(message.body)")
+        //            return
+        //        }
     }
 }
