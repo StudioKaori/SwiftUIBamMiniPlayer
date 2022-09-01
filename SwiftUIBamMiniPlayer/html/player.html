@@ -63,9 +63,7 @@
 
       // Detect User-Agent OS
       // Modify if you are using custom User-Agent
-      var userAgent = window.navigator.userAgent.toLowerCase(),
-        isIos = userAgent.match(/iphone|ipod|ipad/),
-        isAndroid = userAgent.includes("android");
+      const isIos = true;
 
       // Bambuser Integration
       (function () {
@@ -97,6 +95,7 @@
 
           // Registering event listeners ↓
           player.on(player.EVENT.READY, function () {
+              console.log("event ready");
             if (isIos) {
               window.webkit.messageHandlers.bambuserEventHandler.postMessage({
                 eventName: "player.EVENT.READY",
@@ -120,6 +119,7 @@
 
           player.on(player.EVENT.SHOW_PRODUCT_VIEW, (event) => {
             console.log("SHOW_PRODUCT_VIEW", event);
+            
             if (isIos) {
               window.webkit.messageHandlers.bambuserEventHandler.postMessage({
                 eventName: "player.EVENT.SHOW_PRODUCT_VIEW",
@@ -184,6 +184,8 @@
           });
         };
       })();
+        
+        console.log("web start");
     </script>
   </head>
 
@@ -198,6 +200,8 @@
       </button>
     </div>
     <script>
+        window.webkit.messageHandlers.bambuserEventHandler.postMessage("see msg!!");
+        
       (function () {
         // Instantiate the embed script
         if (!window.initBambuserLiveShopping) {
