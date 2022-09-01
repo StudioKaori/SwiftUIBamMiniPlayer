@@ -32,7 +32,7 @@ struct PlayerWebView: UIViewRepresentable {
         
         // Javascript post message handler
         let handler = MessageHandler()
-        configuration.userContentController.add(handler, name: "jsMessage")
+        configuration.userContentController.add(handler, name: "bambuserEventHandler")
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
         return webView
@@ -68,6 +68,14 @@ private class WebViewURLObservable: ObservableObject {
 // MARK: - Javascript message handler
 class MessageHandler: NSObject, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        print(message.body)
+        guard message.name == "bambuserEventHandler" else {
+            print("No handler for this message: \(message)")
+            return
+        }
+        
+        guard let body = message.body as? [String: Any] else {
+            print("could not convert message body to dictionary: \(message.body)")
+            return
+        }
     }
 }
