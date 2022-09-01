@@ -11,7 +11,8 @@ import SwiftUI
 struct SwiftUIBamMiniPlayerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomePageView()
+                .environmentObject(ObservablePlayerState())
         }
     }
 }

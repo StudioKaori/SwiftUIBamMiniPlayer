@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */; };
-		43801D1D28BE633D001C2048 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D1C28BE633D001C2048 /* ContentView.swift */; };
 		43801D1F28BE633F001C2048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43801D1E28BE633F001C2048 /* Assets.xcassets */; };
 		43801D2228BE633F001C2048 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43801D2128BE633F001C2048 /* Preview Assets.xcassets */; };
 		43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D2928BE64AD001C2048 /* PlayerWebView.swift */; };
@@ -17,12 +16,12 @@
 		43801D3528C1469B001C2048 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3428C1469B001C2048 /* PlayerView.swift */; };
 		43801D3728C14767001C2048 /* ProductPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3628C14767001C2048 /* ProductPageView.swift */; };
 		43801D3A28C148E5001C2048 /* ObservablePlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3928C148E5001C2048 /* ObservablePlayerState.swift */; };
+		43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3B28C14B32001C2048 /* HomePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		43801D1728BE633D001C2048 /* SwiftUIBamMiniPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIBamMiniPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBamMiniPlayerApp.swift; sourceTree = "<group>"; };
-		43801D1C28BE633D001C2048 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43801D1E28BE633F001C2048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43801D2128BE633F001C2048 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43801D2928BE64AD001C2048 /* PlayerWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWebView.swift; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		43801D3428C1469B001C2048 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		43801D3628C14767001C2048 /* ProductPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageView.swift; sourceTree = "<group>"; };
 		43801D3928C148E5001C2048 /* ObservablePlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePlayerState.swift; sourceTree = "<group>"; };
+		43801D3B28C14B32001C2048 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 		43801D2E28BFEEFC001C2048 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				43801D1C28BE633D001C2048 /* ContentView.swift */,
+				43801D3B28C14B32001C2048 /* HomePageView.swift */,
 				43801D3428C1469B001C2048 /* PlayerView.swift */,
 				43801D2928BE64AD001C2048 /* PlayerWebView.swift */,
 				43801D3628C14767001C2048 /* ProductPageView.swift */,
@@ -189,11 +189,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */,
-				43801D1D28BE633D001C2048 /* ContentView.swift in Sources */,
 				43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */,
 				43801D3728C14767001C2048 /* ProductPageView.swift in Sources */,
 				43801D3528C1469B001C2048 /* PlayerView.swift in Sources */,
 				43801D2C28BFEE82001C2048 /* Constant.swift in Sources */,
+				43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */,
 				43801D3A28C148E5001C2048 /* ObservablePlayerState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
