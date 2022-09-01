@@ -16,6 +16,13 @@ struct ContentView: View {
     // MARK: - Body
     var body: some View {
         ZStack {
+            NavigationView {
+                NavigationLink(destination: {
+                    ProductPageView()
+                }, label: {
+                    Text("Product page")
+                })
+            }
         } //: Zstack
     }
 }
