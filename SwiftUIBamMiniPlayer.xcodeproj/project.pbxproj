@@ -14,6 +14,7 @@
 		43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D2928BE64AD001C2048 /* PlayerWebView.swift */; };
 		43801D2C28BFEE82001C2048 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D2B28BFEE82001C2048 /* Constant.swift */; };
 		43801D3328C0F2DE001C2048 /* player.html in Resources */ = {isa = PBXBuildFile; fileRef = 43801D3228C0F2DE001C2048 /* player.html */; };
+		43801D3528C1469B001C2048 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3428C1469B001C2048 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		43801D2928BE64AD001C2048 /* PlayerWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWebView.swift; sourceTree = "<group>"; };
 		43801D2B28BFEE82001C2048 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		43801D3228C0F2DE001C2048 /* player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = player.html; sourceTree = "<group>"; };
+		43801D3428C1469B001C2048 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,8 @@
 		43801D1928BE633D001C2048 /* SwiftUIBamMiniPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				43801D3128C0F2CF001C2048 /* html */,
 				43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */,
+				43801D3128C0F2CF001C2048 /* html */,
 				43801D2D28BFEEF0001C2048 /* Utilities */,
 				43801D2E28BFEEFC001C2048 /* Views */,
 				43801D1E28BE633F001C2048 /* Assets.xcassets */,
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				43801D1C28BE633D001C2048 /* ContentView.swift */,
+				43801D3428C1469B001C2048 /* PlayerView.swift */,
 				43801D2928BE64AD001C2048 /* PlayerWebView.swift */,
 			);
 			path = Views;
@@ -174,6 +177,7 @@
 				43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */,
 				43801D1D28BE633D001C2048 /* ContentView.swift in Sources */,
 				43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */,
+				43801D3528C1469B001C2048 /* PlayerView.swift in Sources */,
 				43801D2C28BFEE82001C2048 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
