@@ -10,3 +10,4 @@ import SwiftUI
 // MARK: - Properties
 let miniPlayerWidth: CGFloat = 200
 let miniPlayerHeight: CGFloat = 300
+let miniPlayerMarginFromEdge: CGFloat = 20
