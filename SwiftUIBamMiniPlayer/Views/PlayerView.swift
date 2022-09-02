@@ -9,11 +9,12 @@ import SwiftUI
 
 struct PlayerView: View {
     // MARK: - Properties
+    @EnvironmentObject var observablePlayerState: ObservablePlayerState
+    
     @State private var location: CGPoint = CGPoint(
         x: miniPlayerMarginFromEdge + miniPlayerWidth/2,
         y: miniPlayerMarginFromEdge + miniPlayerHeight/2
     )
-    @State private var isPlayerMinimised: Bool = false
     
     private let playerUrl: String = "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true"
     
@@ -27,9 +28,9 @@ struct PlayerView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             PlayerWebView(url: playerUrl)
-                .frame(width: isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
-                .cornerRadius(isPlayerMinimised ? 10 : 0)
-                .position(isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
+                .frame(width: self.observablePlayerState.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: self.observablePlayerState.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
+                .cornerRadius(self.observablePlayerState.isPlayerMinimised ? 10 : 0)
+                .position(self.observablePlayerState.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
                 .gesture(
                     DragGesture().onChanged({ value in
                         //print(value.location)
@@ -52,12 +53,12 @@ struct PlayerView: View {
                         self.location = newLocation
                 }))
                 .onTapGesture {
-                    if isPlayerMinimised {isPlayerMinimised = false}
+                    if self.observablePlayerState.isPlayerMinimised {self.observablePlayerState.isPlayerMinimised = false}
                 }
                 .ignoresSafeArea()
             
             Button(action: {
-                isPlayerMinimised.toggle()
+                self.observablePlayerState.isPlayerMinimised.toggle()
             }, label: {
                 Text("Toggle the player size")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
@@ -78,5 +79,6 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerView()
+            .environmentObject(ObservablePlayerState())
     }
 }

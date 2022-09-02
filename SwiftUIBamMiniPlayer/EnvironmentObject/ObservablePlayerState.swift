@@ -9,5 +9,6 @@ import SwiftUI
 
 class ObservablePlayerState: ObservableObject {
     @Published var isPlayerViewVisible = false
+    @Published var isPlayerMinimised: Bool = false
     
 }

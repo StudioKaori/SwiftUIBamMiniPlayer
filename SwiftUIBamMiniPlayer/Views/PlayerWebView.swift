@@ -91,6 +91,9 @@ private class WebViewURLObservable: ObservableObject {
 
 // MARK: - Javascript message handler
 class MessageHandler: NSObject, WKScriptMessageHandler {
+    // MARK: - Properties
+    @EnvironmentObject var observablePlayerState: ObservablePlayerState
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
         guard message.name == "bambuserEventHandler" else {
