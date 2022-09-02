@@ -9,11 +9,18 @@ import SwiftUI
 
 struct PlayerView: View {
     // MARK: - Properties
-    @State private var location: CGPoint = CGPoint(x: miniPlayerWidth/2, y: miniPlayerHeight/2)
+    @State private var location: CGPoint = CGPoint(
+        x: miniPlayerMarginFromEdge + miniPlayerWidth/2,
+        y: miniPlayerMarginFromEdge + miniPlayerHeight/2
+    )
     @State private var isPlayerMinimised: Bool = false
     
     private let playerUrl: String = "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true"
     
+    private let miniPlayerPositionLeadingX: CGFloat = miniPlayerMarginFromEdge + miniPlayerWidth/2
+    private let miniPlayerPositionLeadingY: CGFloat = miniPlayerMarginFromEdge + miniPlayerHeight/2
+    private let miniPlayerPositionTrailingX: CGFloat = UIScreen.main.bounds.width - miniPlayerWidth/2 - miniPlayerMarginFromEdge
+    private let miniPlayerPositionTrailingY: CGFloat = UIScreen.main.bounds.height - miniPlayerHeight/2 - miniPlayerMarginFromEdge
     
     
     // MARK: - Body
@@ -29,17 +36,17 @@ struct PlayerView: View {
                         let _ = print(value)
                         var newLocation: CGPoint = value.location
                         
-                        if value.location.x < miniPlayerMarginFromEdge + miniPlayerWidth/2 {
-                            newLocation.x = miniPlayerMarginFromEdge + miniPlayerWidth/2
+                        if value.location.x < miniPlayerPositionLeadingX {
+                            newLocation.x = miniPlayerPositionLeadingX
                         }
-                        if value.location.y < miniPlayerMarginFromEdge + miniPlayerHeight/2 {
-                            newLocation.y = miniPlayerMarginFromEdge + miniPlayerHeight/2
+                        if value.location.y < miniPlayerPositionLeadingY {
+                            newLocation.y = miniPlayerPositionLeadingY
                         }
-                        if value.location.x > UIScreen.main.bounds.width - miniPlayerWidth/2 - miniPlayerMarginFromEdge  {
-                            newLocation.x = UIScreen.main.bounds.width - miniPlayerWidth/2 - miniPlayerMarginFromEdge
+                        if value.location.x > miniPlayerPositionTrailingX  {
+                            newLocation.x = miniPlayerPositionTrailingX
                         }
-                        if value.location.y > UIScreen.main.bounds.height - miniPlayerHeight/2 - miniPlayerMarginFromEdge  {
-                            newLocation.y = UIScreen.main.bounds.height - miniPlayerHeight/2 - miniPlayerMarginFromEdge
+                        if value.location.y > miniPlayerPositionTrailingY  {
+                            newLocation.y = miniPlayerPositionTrailingY
                         }
                         
                         self.location = newLocation
