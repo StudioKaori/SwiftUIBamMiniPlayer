@@ -14,11 +14,13 @@ struct PlayerView: View {
     
     private let playerUrl: String = "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true"
     
+    private let miniPlayerMarginFromEdge = 20
+    
     
     
     // MARK: - Body
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             PlayerWebView(url: playerUrl)
             .frame(width: isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
             .cornerRadius(isPlayerMinimised ? 10 : 0)
@@ -39,7 +41,9 @@ struct PlayerView: View {
                     .padding()
                     .background(.pink)
                     .cornerRadius(20)
+                    .offset(x: 0, y: UIScreen.main.bounds.height - 350)
                 // if I use position, somehow all the display area reacts as a button, so it should be comment out.
+                // it seems like position fill all the available area.
                 //                    .position(x: 200, y: UIScreen.main.bounds.height - 300)
                 
             })
