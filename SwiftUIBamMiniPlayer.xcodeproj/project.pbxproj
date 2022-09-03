@@ -17,8 +17,8 @@
 		43801D3728C14767001C2048 /* ProductPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3628C14767001C2048 /* ProductPageView.swift */; };
 		43801D3A28C148E5001C2048 /* ObservablePlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3928C148E5001C2048 /* ObservablePlayerState.swift */; };
 		43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3B28C14B32001C2048 /* HomePageView.swift */; };
-		43801D3F28C33EC5001C2048 /* ProductPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3E28C33EC5001C2048 /* ProductPageVM.swift */; };
 		43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4128C3AA08001C2048 /* PlayerStatus.swift */; };
+		43801D4428C3AC73001C2048 /* WebViewMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		43801D3628C14767001C2048 /* ProductPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageView.swift; sourceTree = "<group>"; };
 		43801D3928C148E5001C2048 /* ObservablePlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePlayerState.swift; sourceTree = "<group>"; };
 		43801D3B28C14B32001C2048 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		43801D3E28C33EC5001C2048 /* ProductPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageVM.swift; sourceTree = "<group>"; };
 		43801D4128C3AA08001C2048 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
+		43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMessageHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,6 @@
 			children = (
 				43801D3B28C14B32001C2048 /* HomePageView.swift */,
 				43801D3428C1469B001C2048 /* PlayerView.swift */,
-				43801D2928BE64AD001C2048 /* PlayerWebView.swift */,
 				43801D3628C14767001C2048 /* ProductPageView.swift */,
 			);
 			path = Views;
@@ -126,7 +125,7 @@
 		43801D3D28C33EA8001C2048 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				43801D3E28C33EC5001C2048 /* ProductPageVM.swift */,
+				43801D4528C3ACD6001C2048 /* WebView */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -137,6 +136,15 @@
 				43801D4128C3AA08001C2048 /* PlayerStatus.swift */,
 			);
 			path = ObservableObjects;
+			sourceTree = "<group>";
+		};
+		43801D4528C3ACD6001C2048 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */,
+				43801D2928BE64AD001C2048 /* PlayerWebView.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,11 +222,11 @@
 				43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */,
 				43801D3728C14767001C2048 /* ProductPageView.swift in Sources */,
 				43801D3528C1469B001C2048 /* PlayerView.swift in Sources */,
+				43801D4428C3AC73001C2048 /* WebViewMessageHandler.swift in Sources */,
 				43801D2C28BFEE82001C2048 /* Constant.swift in Sources */,
 				43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */,
 				43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */,
 				43801D3A28C148E5001C2048 /* ObservablePlayerState.swift in Sources */,
-				43801D3F28C33EC5001C2048 /* ProductPageVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
