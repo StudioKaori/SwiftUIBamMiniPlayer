@@ -9,8 +9,6 @@ import SwiftUI
 
 struct PlayerView: View {
     // MARK: - Properties
-    @EnvironmentObject var observablePlayerState: ObservablePlayerState
-    
     @StateObject private var playerStatus = PlayerStatus.shared
     
     @State private var location: CGPoint = CGPoint(
@@ -35,8 +33,6 @@ struct PlayerView: View {
                 .position(playerStatus.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
                 .gesture(
                     DragGesture().onChanged({ value in
-                        //print(value.location)
-                        let _ = print(value)
                         var newLocation: CGPoint = value.location
                         
                         if value.location.x < miniPlayerPositionLeadingX {
@@ -81,6 +77,5 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerView()
-            .environmentObject(ObservablePlayerState())
     }
 }

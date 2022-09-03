@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ProductPageView: View {
     // MARK: - Properties
-    @EnvironmentObject var observablePlayerState: ObservablePlayerState
-    
     @StateObject private var playerStatus = PlayerStatus.shared
     
     var productId = "default"
@@ -35,6 +33,5 @@ struct ProductPageView: View {
 struct ProductPageView_Previews: PreviewProvider {
     static var previews: some View {
         ProductPageView()
-            .environmentObject(ObservablePlayerState())
     }
 }

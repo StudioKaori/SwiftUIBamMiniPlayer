@@ -12,7 +12,6 @@ struct SwiftUIBamMiniPlayerApp: App {
     var body: some Scene {
         WindowGroup {
             HomePageView()
-                .environmentObject(ObservablePlayerState())
         }
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomePageView: View {
     // MARK: - Properties
-    @EnvironmentObject var observablePlayerState: ObservablePlayerState
     @StateObject private var playerStatus = PlayerStatus.shared
     
     
@@ -41,6 +40,5 @@ struct HomePageView: View {
 struct HomePageView_Previews: PreviewProvider {
     static var previews: some View {
         HomePageView()
-            .environmentObject(ObservablePlayerState())
     }
 }
