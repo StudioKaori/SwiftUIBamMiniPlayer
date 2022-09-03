@@ -21,11 +21,12 @@ struct HomePageView: View {
                 }, label: {
                     Text("Product page")
                 })
+                
+                NavigationLink(destination: ProductPageView(), isActive: $playerStatus.isChildViewVisible) {
+                    EmptyView()
+                }
+                
             } //: Navigation View
-            
-//            NavigationLink(destination: ProductPageView(), isActive: $observablePlayerState.isChildViewVisible) {
-//                EmptyView()
-//            }
             
             // Player
             if (playerStatus.isPlayerViewVisible) {

@@ -12,8 +12,8 @@ struct PlayerView: View {
     @StateObject private var playerStatus = PlayerStatus.shared
     
     @State private var location: CGPoint = CGPoint(
-        x: miniPlayerMarginFromEdge + miniPlayerWidth/2,
-        y: miniPlayerMarginFromEdge + miniPlayerHeight/2
+        x: UIScreen.main.bounds.width - miniPlayerWidth/2 - miniPlayerMarginFromEdge,
+        y: UIScreen.main.bounds.height - miniPlayerHeight/2 - miniPlayerMarginFromEdge
     )
     
     private let playerUrl: String = "https://demo.bambuser.shop/content/webview-landing-v2.html?mockLiveBambuser=true"

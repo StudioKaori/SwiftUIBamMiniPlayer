@@ -116,7 +116,7 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
             
             print("sku: \(sku)")
             PlayerStatus.shared.isPlayerMinimised = true
-            //self.observablePlayerState.isChildViewVisible = true
+            PlayerStatus.shared.isChildViewVisible = true
 
             
         default:
