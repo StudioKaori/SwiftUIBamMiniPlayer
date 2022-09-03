@@ -12,6 +12,7 @@ struct PlayerWebView: UIViewRepresentable {
     
     let url: String
     private let observable = WebViewURLObservable()
+    private let webView: WKWebView = WKWebView(frame: .zero, configuration: PlayerConfig.getPlayerConfig())
     
     // Observe the target's value change
     var observer: NSKeyValueObservation? {
@@ -22,21 +23,21 @@ struct PlayerWebView: UIViewRepresentable {
     // Create view instance and returns UIKit view
     func makeUIView(context: Context) -> WKWebView {
         
-        // For playing video inline
-        let configuration = WKWebViewConfiguration()
-        configuration.allowsInlineMediaPlayback = true
-        
-        // To enable Javascript
-        let preferences = WKPreferences()
-        preferences.javaScriptEnabled = true
-        
-        configuration.preferences = preferences
-        
-        // Javascript post message handler
-        let handler = WebViewMessageHandler()
-        configuration.userContentController.add(handler, name: "bambuserEventHandler")
-        
-        let webView = WKWebView(frame: .zero, configuration: configuration)
+//        // For playing video inline
+//        let configuration = WKWebViewConfiguration()
+//        configuration.allowsInlineMediaPlayback = true
+//
+//        // To enable Javascript
+//        let preferences = WKPreferences()
+//        preferences.javaScriptEnabled = true
+//
+//        configuration.preferences = preferences
+//
+//        // Javascript post message handler
+//        let handler = WebViewMessageHandler()
+//        configuration.userContentController.add(handler, name: "bambuserEventHandler")
+//
+//        let webView = WKWebView(frame: .zero, configuration: configuration)
         
         // load local player.html
         let theFileName = ("player" as NSString).lastPathComponent
@@ -77,13 +78,44 @@ struct PlayerWebView: UIViewRepresentable {
         //        if uiView.url != URL(string: url)! {
         //            uiView.load(URLRequest(url: URL(string: url)!))
         //        }
-        
-        
-        
     }
+    
+    // This function is used to communicate message to the JS
+    private func evaluateJavascript(_ javascript: String, sourceURL: String? = nil, completion: ((_ result: Any? , _ error: String?) -> Void)? = nil) {
+        webView.evaluateJavaScript(javascript) { (result, error) in
+            guard result != nil else {
+                print("error \(String(describing: error))")
+                completion?(nil, error?.localizedDescription)
+                return
+            }
+            completion?(result, nil)
+            print("Success: \(String(describing: result))")
+        }
+    }
+    
 }
 
 // MARK:  WKWebViewのURLが変わったこと（WebView内画面遷移）を検知するための `ObservableObject`
 private class WebViewURLObservable: ObservableObject {
     @Published var instance: NSKeyValueObservation?
+}
+
+private class PlayerConfig {
+    static func getPlayerConfig() -> WKWebViewConfiguration {
+        // For playing video inline
+        let configuration = WKWebViewConfiguration()
+        configuration.allowsInlineMediaPlayback = true
+        
+        // To enable Javascript
+        let preferences = WKPreferences()
+        preferences.javaScriptEnabled = true
+        
+        configuration.preferences = preferences
+        
+        // Javascript post message handler
+        let handler = WebViewMessageHandler()
+        configuration.userContentController.add(handler, name: "bambuserEventHandler")
+        
+        return configuration
+    }
 }
