@@ -17,9 +17,17 @@ struct HomePageView: View {
             NavigationView {
                 VStack{
                     NavigationLink(destination: {
-                        ProductPageView()
+                        ProductPageView(productId: "From Home page")
                     }, label: {
                         Text("Product page")
+                    })
+                    .padding()
+                    
+                    Button(action: {
+                        playerStatus.isPlayerViewVisible.toggle()
+                    }, label: {
+                        Text(playerStatus.isPlayerViewVisible ? "Close the player" : "Open the player")
+                        
                     })
                     
                     NavigationLink(destination: ProductPageView(), isActive: $playerStatus.isChildViewVisible, label: {

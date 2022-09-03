@@ -19,6 +19,7 @@
 		43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4128C3AA08001C2048 /* PlayerStatus.swift */; };
 		43801D4428C3AC73001C2048 /* WebViewMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */; };
 		43801D4728C3B090001C2048 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43801D4628C3B090001C2048 /* README.md */; };
+		43801D4A28C3DCFD001C2048 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4928C3DCFD001C2048 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		43801D4128C3AA08001C2048 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 		43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMessageHandler.swift; sourceTree = "<group>"; };
 		43801D4628C3B090001C2048 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		43801D4928C3DCFD001C2048 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +70,10 @@
 		43801D1928BE633D001C2048 /* SwiftUIBamMiniPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				43801D4028C3A9DD001C2048 /* ObservableObjects */,
-				43801D3D28C33EA8001C2048 /* ViewModels */,
+				43801D4828C3DCEA001C2048 /* Models */,
 				43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */,
+				43801D3D28C33EA8001C2048 /* ViewModels */,
+				43801D4028C3A9DD001C2048 /* ObservableObjects */,
 				43801D3128C0F2CF001C2048 /* html */,
 				43801D2D28BFEEF0001C2048 /* Utilities */,
 				43801D2E28BFEEFC001C2048 /* Views */,
@@ -137,6 +140,14 @@
 				43801D2928BE64AD001C2048 /* PlayerWebView.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		43801D4828C3DCEA001C2048 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				43801D4928C3DCFD001C2048 /* Product.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +224,7 @@
 			files = (
 				43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */,
 				43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */,
+				43801D4A28C3DCFD001C2048 /* Product.swift in Sources */,
 				43801D3728C14767001C2048 /* ProductPageView.swift in Sources */,
 				43801D3528C1469B001C2048 /* PlayerView.swift in Sources */,
 				43801D4428C3AC73001C2048 /* WebViewMessageHandler.swift in Sources */,

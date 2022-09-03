@@ -18,13 +18,6 @@ struct ProductPageView: View {
         VStack {
             Text("Product ID: " + productId)
                 .padding()
-            
-            Button(action: {
-                playerStatus.isPlayerViewVisible.toggle()
-            }, label: {
-                Text(playerStatus.isPlayerViewVisible ? "Close the player" : "Open the player")
-                
-            })
         }
         
     }

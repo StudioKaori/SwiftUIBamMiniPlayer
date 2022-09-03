@@ -104,9 +104,9 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
             // Get the data needed for presenting the product
             guard
                 let data = body["data"] as? [String: AnyObject],
-                //                let url = data["url"] as? String,
+                let url = data["url"] as? String,
                 //                let id = data["id"] as? String,
-                    //                let vendor = data["vendor"] as? String,
+                //let vendor = data["vendor"] as? String,
                     let title = data["title"] as? String,
                 //                let actionOrigin = data["actionOrigin"] as? String,
                 //                let actionTarget = data["actionTarget"] as? String,
@@ -114,7 +114,7 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
 
             else { return }
             
-            print("sku: \(sku)")
+            print("sku: \(sku), title: \(title), url: \(url)")
             PlayerStatus.shared.isPlayerMinimised = true
             PlayerStatus.shared.isChildViewVisible = true
 
