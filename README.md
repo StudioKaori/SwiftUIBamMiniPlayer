@@ -19,6 +19,7 @@ Message handler class is dealing with communication between JS on Webview and na
 Message Handler class will be the owner of the player statuses (isPlayerViewVisible, isPlayerMinimised) instead of the Environmental object.
 
 To hold consistent player statuses, I created singleton instance of Message Handler (name: MessageHandler.shared)
+Later, the project was refactored, and a new observable object class 'PlayerStatus' was made for holding player status.
 
 ### Issue: To make mini player visible over the other view
 
