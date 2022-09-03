@@ -90,9 +90,10 @@ private class WebViewURLObservable: ObservableObject {
 }
 
 // MARK: - Javascript message handler
-class MessageHandler: NSObject, WKScriptMessageHandler {
+class MessageHandler: NSObject, WKScriptMessageHandler, ObservableObject {
     // MARK: - Properties
-    @EnvironmentObject var observablePlayerState: ObservablePlayerState
+    @Published var isPlayerViewVisible: Bool = false
+    @Published var isPlayerMinimised: Bool = false
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
@@ -198,6 +199,8 @@ class MessageHandler: NSObject, WKScriptMessageHandler {
             else { return }
             
             print("sku: \(sku)")
+            isPlayerMinimised = true
+            //self.observablePlayerState.isChildViewVisible = true
 
             
         default:

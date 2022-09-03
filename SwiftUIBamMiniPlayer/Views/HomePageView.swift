@@ -10,6 +10,7 @@ import SwiftUI
 struct HomePageView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
+    @StateObject private var messageHandler: MessageHandler = MessageHandler()
     
     
     // MARK: - Body
@@ -23,8 +24,12 @@ struct HomePageView: View {
                 })
             } //: Navigation View
             
+//            NavigationLink(destination: ProductPageView(), isActive: $observablePlayerState.isChildViewVisible) {
+//                EmptyView()
+//            }
+            
             // Player
-            if (self.observablePlayerState.isPlayerViewVisible) {
+            if (messageHandler.isPlayerViewVisible) {
                 PlayerView()
             }
             

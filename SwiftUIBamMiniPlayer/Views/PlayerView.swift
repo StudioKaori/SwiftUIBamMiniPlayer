@@ -11,6 +11,8 @@ struct PlayerView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
     
+    @StateObject private var messageHandler: MessageHandler = MessageHandler()
+    
     @State private var location: CGPoint = CGPoint(
         x: miniPlayerMarginFromEdge + miniPlayerWidth/2,
         y: miniPlayerMarginFromEdge + miniPlayerHeight/2
@@ -28,9 +30,9 @@ struct PlayerView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             PlayerWebView(url: playerUrl)
-                .frame(width: self.observablePlayerState.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: self.observablePlayerState.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
-                .cornerRadius(self.observablePlayerState.isPlayerMinimised ? 10 : 0)
-                .position(self.observablePlayerState.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
+                .frame(width: messageHandler.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: messageHandler.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
+                .cornerRadius(messageHandler.isPlayerMinimised ? 10 : 0)
+                .position(messageHandler.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
                 .gesture(
                     DragGesture().onChanged({ value in
                         //print(value.location)
@@ -53,12 +55,12 @@ struct PlayerView: View {
                         self.location = newLocation
                 }))
                 .onTapGesture {
-                    if self.observablePlayerState.isPlayerMinimised {self.observablePlayerState.isPlayerMinimised = false}
+                    if messageHandler.isPlayerMinimised {messageHandler.isPlayerMinimised = false}
                 }
                 .ignoresSafeArea()
             
             Button(action: {
-                self.observablePlayerState.isPlayerMinimised.toggle()
+                messageHandler.isPlayerMinimised.toggle()
             }, label: {
                 Text("Toggle the player size")
                     .font(.system(size: 24, weight: .bold, design: .rounded))
