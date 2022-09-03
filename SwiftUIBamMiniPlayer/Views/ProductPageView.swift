@@ -11,13 +11,22 @@ struct ProductPageView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
     
+    var productId = "default"
+    
+    // MARK: - Body
     var body: some View {
-        Button(action: {
-            self.observablePlayerState.isPlayerViewVisible.toggle()
-        }, label: {
-            Text(self.observablePlayerState.isPlayerViewVisible ? "Close the player" : "Open the player")
+        VStack {
+            Text("Product ID: " + productId)
+                .padding()
             
-        })
+            Button(action: {
+                self.observablePlayerState.isPlayerViewVisible.toggle()
+            }, label: {
+                Text(self.observablePlayerState.isPlayerViewVisible ? "Close the player" : "Open the player")
+                
+            })
+        }
+        
     }
 }
 
