@@ -34,7 +34,7 @@ struct PlayerWebView: UIViewRepresentable {
         configuration.preferences = preferences
         
         // Javascript post message handler
-        let handler = MessageHandler()
+        let handler = MessageHandler.shared
         configuration.userContentController.add(handler, name: "bambuserEventHandler")
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
@@ -91,10 +91,15 @@ private class WebViewURLObservable: ObservableObject {
 
 // MARK: - Javascript message handler
 class MessageHandler: NSObject, WKScriptMessageHandler, ObservableObject {
+    
     // MARK: - Properties
     @Published var isPlayerViewVisible: Bool = false
     @Published var isPlayerMinimised: Bool = false
     
+    // Singleton object
+    static let shared: MessageHandler = MessageHandler()
+    private override init() {}
+
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
         guard message.name == "bambuserEventHandler" else {

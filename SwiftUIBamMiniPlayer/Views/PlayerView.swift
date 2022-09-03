@@ -11,7 +11,7 @@ struct PlayerView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
     
-    @StateObject private var messageHandler: MessageHandler = MessageHandler()
+    @StateObject private var messageHandler: MessageHandler = MessageHandler.shared
     
     @State private var location: CGPoint = CGPoint(
         x: miniPlayerMarginFromEdge + miniPlayerWidth/2,

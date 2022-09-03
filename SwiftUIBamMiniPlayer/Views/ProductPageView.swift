@@ -11,7 +11,7 @@ struct ProductPageView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
     
-    @StateObject private var messageHandler: MessageHandler = MessageHandler()
+    @StateObject private var messageHandler: MessageHandler = MessageHandler.shared
     
     var productId = "default"
     
