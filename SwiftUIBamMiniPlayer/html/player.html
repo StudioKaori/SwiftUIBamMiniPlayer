@@ -80,9 +80,17 @@
             </button>
         </div>
         <script>
-            window.webkit.messageHandlers.bambuserEventHandler.postMessage("see msg!!");
+            let bamPlayer;
+            
+            // Restore the player UI, triggered by onPictureInPictureModeChanged in Android native app
+            const showUI = () => {
+              console.log('showUI, Restore the player UI');
+              bamPlayer.showUI();
+            };
+            
             // Player Config and Event Handlers
             window.onBambuserLiveShoppingReady = function (player) {
+                bamPlayer = player;
                 player.configure({
                     buttons: {
                         dismiss: player.BUTTON.CLOSE,
@@ -125,14 +133,13 @@
                 });
                 
                 player.on(player.EVENT.SHOW_PRODUCT_VIEW, (event) => {
-                    window.webkit.messageHandlers.bambuserEventHandler.postMessage("player.EVENT.SHOW_PRODUCT_VIEW!!!");
-                    console.log("SHOW_PRODUCT_VIEW", event);
-                    
                     if (isIos) {
                         window.webkit.messageHandlers.bambuserEventHandler.postMessage({
                             eventName: "player.EVENT.SHOW_PRODUCT_VIEW",
                             data: event,
                         });
+                        player.hideUI("actionBarButtons");
+                        
                     } else if (isAndroid) {
                         Android.showToast(`Product (id: ${event.sku}) has been clicked!`);
                     }
