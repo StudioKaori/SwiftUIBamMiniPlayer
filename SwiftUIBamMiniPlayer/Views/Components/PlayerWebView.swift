@@ -12,7 +12,7 @@ struct PlayerWebView: UIViewRepresentable {
     
     let url: String
     private let observable = WebViewURLObservable()
-    private let webView: WKWebView = WKWebView(frame: .zero, configuration: PlayerConfig.getPlayerConfig())
+    private let webView: WKWebView = WKWebView(frame: .zero, configuration: WebViewConfig.getConfig())
     
     // Observe the target's value change
     var observer: NSKeyValueObservation? {
@@ -22,23 +22,7 @@ struct PlayerWebView: UIViewRepresentable {
     // MARK: - UIViewRepresentable
     // Create view instance and returns UIKit view
     func makeUIView(context: Context) -> WKWebView {
-        
-//        // For playing video inline
-//        let configuration = WKWebViewConfiguration()
-//        configuration.allowsInlineMediaPlayback = true
-//
-//        // To enable Javascript
-//        let preferences = WKPreferences()
-//        preferences.javaScriptEnabled = true
-//
-//        configuration.preferences = preferences
-//
-//        // Javascript post message handler
-//        let handler = WebViewMessageHandler()
-//        configuration.userContentController.add(handler, name: "bambuserEventHandler")
-//
-//        let webView = WKWebView(frame: .zero, configuration: configuration)
-        
+                
         // load local player.html
         let theFileName = ("player" as NSString).lastPathComponent
         let htmlPath = Bundle.main.path(forResource: theFileName, ofType: "html")
@@ -100,8 +84,9 @@ private class WebViewURLObservable: ObservableObject {
     @Published var instance: NSKeyValueObservation?
 }
 
-private class PlayerConfig {
-    static func getPlayerConfig() -> WKWebViewConfiguration {
+// MARK: - Create WebView config
+private class WebViewConfig {
+    static func getConfig() -> WKWebViewConfiguration {
         // For playing video inline
         let configuration = WKWebViewConfiguration()
         configuration.allowsInlineMediaPlayback = true
