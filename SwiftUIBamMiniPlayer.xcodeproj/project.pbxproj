@@ -70,8 +70,8 @@
 		43801D1928BE633D001C2048 /* SwiftUIBamMiniPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				43801D4828C3DCEA001C2048 /* Models */,
 				43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */,
+				43801D4828C3DCEA001C2048 /* Models */,
 				43801D3D28C33EA8001C2048 /* ViewModels */,
 				43801D4028C3A9DD001C2048 /* ObservableObjects */,
 				43801D3128C0F2CF001C2048 /* html */,
