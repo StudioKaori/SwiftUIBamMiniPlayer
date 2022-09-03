@@ -18,6 +18,7 @@
 		43801D3A28C148E5001C2048 /* ObservablePlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3928C148E5001C2048 /* ObservablePlayerState.swift */; };
 		43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3B28C14B32001C2048 /* HomePageView.swift */; };
 		43801D3F28C33EC5001C2048 /* ProductPageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3E28C33EC5001C2048 /* ProductPageVM.swift */; };
+		43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4128C3AA08001C2048 /* PlayerStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		43801D3928C148E5001C2048 /* ObservablePlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePlayerState.swift; sourceTree = "<group>"; };
 		43801D3B28C14B32001C2048 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		43801D3E28C33EC5001C2048 /* ProductPageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPageVM.swift; sourceTree = "<group>"; };
+		43801D4128C3AA08001C2048 /* PlayerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		43801D1928BE633D001C2048 /* SwiftUIBamMiniPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				43801D4028C3A9DD001C2048 /* ObservableObjects */,
 				43801D3D28C33EA8001C2048 /* ViewModels */,
 				43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */,
 				43801D3828C1489E001C2048 /* EnvironmentObject */,
@@ -126,6 +129,14 @@
 				43801D3E28C33EC5001C2048 /* ProductPageVM.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		43801D4028C3A9DD001C2048 /* ObservableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				43801D4128C3AA08001C2048 /* PlayerStatus.swift */,
+			);
+			path = ObservableObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 				43801D3728C14767001C2048 /* ProductPageView.swift in Sources */,
 				43801D3528C1469B001C2048 /* PlayerView.swift in Sources */,
 				43801D2C28BFEE82001C2048 /* Constant.swift in Sources */,
+				43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */,
 				43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */,
 				43801D3A28C148E5001C2048 /* ObservablePlayerState.swift in Sources */,
 				43801D3F28C33EC5001C2048 /* ProductPageVM.swift in Sources */,

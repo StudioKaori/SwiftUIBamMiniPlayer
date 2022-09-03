@@ -34,7 +34,7 @@ struct PlayerWebView: UIViewRepresentable {
         configuration.preferences = preferences
         
         // Javascript post message handler
-        let handler = MessageHandler.shared
+        let handler = MessageHandler()
         configuration.userContentController.add(handler, name: "bambuserEventHandler")
         
         let webView = WKWebView(frame: .zero, configuration: configuration)
@@ -90,15 +90,8 @@ private class WebViewURLObservable: ObservableObject {
 }
 
 // MARK: - Javascript message handler
-class MessageHandler: NSObject, WKScriptMessageHandler, ObservableObject {
-    
+class MessageHandler: NSObject, WKScriptMessageHandler {
     // MARK: - Properties
-    @Published var isPlayerViewVisible: Bool = false
-    @Published var isPlayerMinimised: Bool = false
-    
-    // Singleton object
-    static let shared: MessageHandler = MessageHandler()
-    private override init() {}
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
@@ -204,7 +197,7 @@ class MessageHandler: NSObject, WKScriptMessageHandler, ObservableObject {
             else { return }
             
             print("sku: \(sku)")
-            isPlayerMinimised = true
+            PlayerStatus.shared.isPlayerMinimised = true
             //self.observablePlayerState.isChildViewVisible = true
 
             

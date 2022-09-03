@@ -11,7 +11,7 @@ struct ProductPageView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
     
-    @StateObject private var messageHandler: MessageHandler = MessageHandler.shared
+    @StateObject private var playerStatus = PlayerStatus.shared
     
     var productId = "default"
     
@@ -22,9 +22,9 @@ struct ProductPageView: View {
                 .padding()
             
             Button(action: {
-                messageHandler.isPlayerViewVisible.toggle()
+                playerStatus.isPlayerViewVisible.toggle()
             }, label: {
-                Text(messageHandler.isPlayerViewVisible ? "Close the player" : "Open the player")
+                Text(playerStatus.isPlayerViewVisible ? "Close the player" : "Open the player")
                 
             })
         }

@@ -10,7 +10,7 @@ import SwiftUI
 struct HomePageView: View {
     // MARK: - Properties
     @EnvironmentObject var observablePlayerState: ObservablePlayerState
-    @StateObject private var messageHandler: MessageHandler = MessageHandler.shared
+    @StateObject private var playerStatus = PlayerStatus.shared
     
     
     // MARK: - Body
@@ -29,7 +29,7 @@ struct HomePageView: View {
 //            }
             
             // Player
-            if (messageHandler.isPlayerViewVisible) {
+            if (playerStatus.isPlayerViewVisible) {
                 PlayerView()
             }
             
