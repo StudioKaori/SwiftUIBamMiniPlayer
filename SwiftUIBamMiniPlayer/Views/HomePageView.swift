@@ -17,7 +17,7 @@ struct HomePageView: View {
             NavigationView {
                 VStack{
                     NavigationLink(destination: {
-                        ProductPageView(productId: "From Home page")
+                        ProductPageView()
                     }, label: {
                         Text("Product page")
                     })

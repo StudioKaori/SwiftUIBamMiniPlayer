@@ -11,12 +11,14 @@ struct ProductPageView: View {
     // MARK: - Properties
     @StateObject private var playerStatus = PlayerStatus.shared
     
-    var productId = "default"
-    
     // MARK: - Body
     var body: some View {
         VStack {
-            Text("Product ID: " + productId)
+            Text("Product SKU: " + playerStatus.currentProduct.sku)
+                .padding()
+            Text("Product Title: " + playerStatus.currentProduct.title)
+                .padding()
+            Text("Product URL: " + playerStatus.currentProduct.url)
                 .padding()
         }
         
