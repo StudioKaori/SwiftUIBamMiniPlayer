@@ -21,7 +21,6 @@ struct PlayerWebView: UIViewRepresentable {
     // MARK: - UIViewRepresentable
     // Create view instance and returns UIKit view
     func makeUIView(context: Context) -> WKWebView {
-        print("makeUIView")
         
         // For playing video inline
         let configuration = WKWebViewConfiguration()
