@@ -11,21 +11,21 @@ struct HomePageView: View {
     // MARK: - Properties
     @StateObject private var playerStatus = PlayerStatus.shared
     
-    
     // MARK: - Body
     var body: some View {
         ZStack {
             NavigationView {
-                NavigationLink(destination: {
-                    ProductPageView()
-                }, label: {
-                    Text("Product page")
-                })
-                
-                NavigationLink(destination: ProductPageView(), isActive: $playerStatus.isChildViewVisible) {
-                    EmptyView()
-                }
-                
+                VStack{
+                    NavigationLink(destination: {
+                        ProductPageView()
+                    }, label: {
+                        Text("Product page")
+                    })
+                    
+                    NavigationLink(destination: ProductPageView(), isActive: $playerStatus.isChildViewVisible, label: {
+                        EmptyView()
+                    })
+                } //: VStack
             } //: Navigation View
             
             // Player

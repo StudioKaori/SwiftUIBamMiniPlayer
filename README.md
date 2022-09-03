@@ -10,6 +10,29 @@ Open the project with Xcode
 ## Update
 
 ### 2022/09/03 update
+### Issue: How to programmatically push page in navigation view?
+
+#### -> use isActive property for navigation link
+```
+            NavigationView {
+                VStack{
+                    NavigationLink(destination: {
+                        ProductPageView()
+                    }, label: {
+                        Text("Product page")
+                    })
+                    
+                    // The navigation link can be manipulate by playerStatus.isChildViewVisible status
+                    NavigationLink(destination: ProductPageView(), isActive: $playerStatus.isChildViewVisible, label: {
+                        EmptyView()
+                    })
+                } //: VStack    
+            } //: Navigation View
+```
+Note:
+- Use EmptyView for label
+- Navigation view takes only one view. Use V/Z/HStack
+
 ### Issue: Non SwiftUI View class cannot access to Environmental object
 
 Message handler class is dealing with communication between JS on Webview and native app. But it’s non SwiftUI View class and cannot access to Environmental object
