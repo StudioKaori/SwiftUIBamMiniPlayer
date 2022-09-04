@@ -27,7 +27,17 @@ struct PlayerView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .topLeading) {
-            PlayerWebViewWrapperView(url: playerUrl)
+            ZStack(alignment: .topLeading) {
+                PlayerWebViewWrapperView(url: playerUrl)
+                
+                if playerStatus.isPlayerMinimised {
+                    Button(action: {
+                        PlayerWebView.shared.playerClose()
+                    }, label: {
+                        Image(systemName: "xmark.circle")
+                    })
+                }
+            }
                 .frame(width: playerStatus.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: playerStatus.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
                 .cornerRadius(playerStatus.isPlayerMinimised ? 10 : 0)
                 .position(playerStatus.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
@@ -58,23 +68,6 @@ struct PlayerView: View {
                     }
                 }
                 .ignoresSafeArea()
-            
-//            Button(action: {
-//                playerStatus.isPlayerMinimised.toggle()
-//            }, label: {
-//                Text("Toggle the player size")
-//                    .font(.system(size: 24, weight: .bold, design: .rounded))
-//            })
-//            .foregroundColor(.white)
-//            .padding()
-//            .background(.pink)
-//            .cornerRadius(20)
-//            // offset should be applied to the button, not the Text to make the button react
-//            .offset(x: 0, y: UIScreen.main.bounds.height - 350)
-//            // if I use position, somehow all the display area reacts as a button, so it should be comment out.
-//            // it seems like position fill all the available area.
-//            // .position(x: 200, y: UIScreen.main.bounds.height - 300)
-//             //: Toggle Button
         }
     }
 }

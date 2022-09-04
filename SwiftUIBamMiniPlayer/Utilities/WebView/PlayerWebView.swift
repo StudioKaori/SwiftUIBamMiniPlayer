@@ -26,6 +26,17 @@ class PlayerWebView {
             print("EvaluateJavascript Success: \(String(describing: result))")
         }
     }
+    
+    // Close the player and webview
+    public func playerOpen() {
+        PlayerStatus.shared.isPlayerViewVisible = true
+    }
+    
+    // Close the player and webview
+    public func playerClose() {
+        PlayerStatus.shared.isPlayerViewVisible = false
+        PlayerStatus.shared.isPlayerMinimised = false
+    }
 }
 
 // MARK: - Create WebView config

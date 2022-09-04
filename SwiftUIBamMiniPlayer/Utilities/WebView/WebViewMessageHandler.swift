@@ -32,13 +32,10 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
             // MARK: - Handle "Close"
         case "player.EVENT.CLOSE":
             print(body["eventName"] ?? "Default Event Name")
-            PlayerStatus.shared.isPlayerViewVisible = false
-            PlayerStatus.shared.isPlayerMinimised = false
+            PlayerWebView.shared.playerClose()
             
             // MARK: - Handle "Ready"
         case "player.EVENT.READY":
-            // Add your handler methods if needed
-            // As an example we print a message when the 'player.EVENT.READY' is emitted
             print(body["eventName"] ?? "Default Event Name")
             
 //            // MARK: - Handle "Add to calendar"
