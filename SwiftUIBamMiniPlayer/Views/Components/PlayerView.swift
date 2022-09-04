@@ -27,14 +27,18 @@ struct PlayerView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .topLeading) {
-            ZStack(alignment: .topLeading) {
+            ZStack(alignment: .topTrailing) {
                 PlayerWebViewWrapperView(url: playerUrl)
                 
+                // player close button for miniplayer
                 if playerStatus.isPlayerMinimised {
                     Button(action: {
                         PlayerWebView.shared.playerClose()
                     }, label: {
                         Image(systemName: "xmark.circle")
+                            .foregroundColor(.white)
+                            .font(.system(size: 30))
+                            .padding(5)
                     })
                 }
             }

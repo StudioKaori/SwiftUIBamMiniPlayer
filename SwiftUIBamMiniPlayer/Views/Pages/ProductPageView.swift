@@ -13,7 +13,7 @@ struct ProductPageView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Product SKU: " + playerStatus.currentProduct.sku)
                 .padding()
             Text("Product Title: " + playerStatus.currentProduct.title)
