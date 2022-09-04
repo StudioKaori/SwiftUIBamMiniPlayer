@@ -74,7 +74,6 @@
 			children = (
 				43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */,
 				43801D4828C3DCEA001C2048 /* Models */,
-				43801D3D28C33EA8001C2048 /* ViewModels */,
 				43801D4028C3A9DD001C2048 /* ObservableObjects */,
 				43801D3128C0F2CF001C2048 /* html */,
 				43801D2D28BFEEF0001C2048 /* Utilities */,
@@ -96,8 +95,8 @@
 		43801D2D28BFEEF0001C2048 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				43801D5228C4932D001C2048 /* WebView */,
 				43801D2B28BFEE82001C2048 /* Constant.swift */,
-				43801D4F28C49218001C2048 /* PlayerWebView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -119,28 +118,12 @@
 			path = html;
 			sourceTree = "<group>";
 		};
-		43801D3D28C33EA8001C2048 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				43801D4528C3ACD6001C2048 /* WebView */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		43801D4028C3A9DD001C2048 /* ObservableObjects */ = {
 			isa = PBXGroup;
 			children = (
 				43801D4128C3AA08001C2048 /* PlayerStatus.swift */,
 			);
 			path = ObservableObjects;
-			sourceTree = "<group>";
-		};
-		43801D4528C3ACD6001C2048 /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */,
-			);
-			path = WebView;
 			sourceTree = "<group>";
 		};
 		43801D4828C3DCEA001C2048 /* Models */ = {
@@ -163,10 +146,27 @@
 		43801D4C28C3E023001C2048 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				43801D2928BE64AD001C2048 /* PlayerWebViewWrapperView.swift */,
+				43801D5128C492F2001C2048 /* WebView */,
 				43801D3428C1469B001C2048 /* PlayerView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		43801D5128C492F2001C2048 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				43801D2928BE64AD001C2048 /* PlayerWebViewWrapperView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		43801D5228C4932D001C2048 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				43801D4F28C49218001C2048 /* PlayerWebView.swift */,
+				43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
