@@ -10,7 +10,7 @@
 		43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */; };
 		43801D1F28BE633F001C2048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43801D1E28BE633F001C2048 /* Assets.xcassets */; };
 		43801D2228BE633F001C2048 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43801D2128BE633F001C2048 /* Preview Assets.xcassets */; };
-		43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D2928BE64AD001C2048 /* PlayerWebView.swift */; };
+		43801D2A28BE64AD001C2048 /* PlayerWebViewWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D2928BE64AD001C2048 /* PlayerWebViewWrapperView.swift */; };
 		43801D2C28BFEE82001C2048 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D2B28BFEE82001C2048 /* Constant.swift */; };
 		43801D3328C0F2DE001C2048 /* player.html in Resources */ = {isa = PBXBuildFile; fileRef = 43801D3228C0F2DE001C2048 /* player.html */; };
 		43801D3528C1469B001C2048 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D3428C1469B001C2048 /* PlayerView.swift */; };
@@ -20,6 +20,7 @@
 		43801D4428C3AC73001C2048 /* WebViewMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */; };
 		43801D4728C3B090001C2048 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43801D4628C3B090001C2048 /* README.md */; };
 		43801D4A28C3DCFD001C2048 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4928C3DCFD001C2048 /* Product.swift */; };
+		43801D5028C49218001C2048 /* PlayerWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4F28C49218001C2048 /* PlayerWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,7 @@
 		43801D1A28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBamMiniPlayerApp.swift; sourceTree = "<group>"; };
 		43801D1E28BE633F001C2048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43801D2128BE633F001C2048 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		43801D2928BE64AD001C2048 /* PlayerWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWebView.swift; sourceTree = "<group>"; };
+		43801D2928BE64AD001C2048 /* PlayerWebViewWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWebViewWrapperView.swift; sourceTree = "<group>"; };
 		43801D2B28BFEE82001C2048 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		43801D3228C0F2DE001C2048 /* player.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = player.html; sourceTree = "<group>"; };
 		43801D3428C1469B001C2048 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewMessageHandler.swift; sourceTree = "<group>"; };
 		43801D4628C3B090001C2048 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		43801D4928C3DCFD001C2048 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		43801D4F28C49218001C2048 /* PlayerWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				43801D2B28BFEE82001C2048 /* Constant.swift */,
+				43801D4F28C49218001C2048 /* PlayerWebView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -160,7 +163,7 @@
 		43801D4C28C3E023001C2048 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				43801D2928BE64AD001C2048 /* PlayerWebView.swift */,
+				43801D2928BE64AD001C2048 /* PlayerWebViewWrapperView.swift */,
 				43801D3428C1469B001C2048 /* PlayerView.swift */,
 			);
 			path = Components;
@@ -238,12 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43801D2A28BE64AD001C2048 /* PlayerWebView.swift in Sources */,
+				43801D2A28BE64AD001C2048 /* PlayerWebViewWrapperView.swift in Sources */,
 				43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */,
 				43801D4A28C3DCFD001C2048 /* Product.swift in Sources */,
 				43801D3728C14767001C2048 /* ProductPageView.swift in Sources */,
 				43801D3528C1469B001C2048 /* PlayerView.swift in Sources */,
 				43801D4428C3AC73001C2048 /* WebViewMessageHandler.swift in Sources */,
+				43801D5028C49218001C2048 /* PlayerWebView.swift in Sources */,
 				43801D2C28BFEE82001C2048 /* Constant.swift in Sources */,
 				43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */,
 				43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */,

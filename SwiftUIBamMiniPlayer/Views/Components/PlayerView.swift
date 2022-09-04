@@ -27,7 +27,7 @@ struct PlayerView: View {
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .topLeading) {
-            PlayerWebView(url: playerUrl)
+            PlayerWebViewWrapperView(url: playerUrl)
                 .frame(width: playerStatus.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: playerStatus.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
                 .cornerRadius(playerStatus.isPlayerMinimised ? 10 : 0)
                 .position(playerStatus.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
@@ -53,7 +53,7 @@ struct PlayerView: View {
                 .onTapGesture {
                     if playerStatus.isPlayerMinimised {
                         playerStatus.isPlayerMinimised = false
-                        PlayerWebViewInstance.shared.evaluateJavascript("showUI()")
+                        PlayerWebView.shared.evaluateJavascript("showUI()")
                         //PlayerWebView.webView.evaluateJavaScript("")
                     }
                 }
