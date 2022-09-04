@@ -9,7 +9,14 @@ Open the project with Xcode
 
 ## Update
 
-#### 2022/09/03 update
+##### 2022/09/04 update
+#### Issue: How to evaluate JS from the all Swift UI components?
+
+##### -> Make the webview instance static.
+Next possible issue: Waist of memory?
+
+
+##### 2022/09/03 update
 #### Issue: How to programmatically push page in navigation view?
 
 ##### -> use isActive property for navigation link
