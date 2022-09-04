@@ -17,13 +17,13 @@ class PlayerWebView {
     // This function is used to communicate message to the JS
     public func evaluateJavascript(_ javascript: String, sourceURL: String? = nil, completion: ((_ result: Any? , _ error: String?) -> Void)? = nil) {
         webView.evaluateJavaScript(javascript) { (result, error) in
-            guard result != nil else {
-                print("error \(String(describing: error))")
+            guard error == nil else {
+                print("EvaluateJavascript error \(String(describing: error))")
                 completion?(nil, error?.localizedDescription)
                 return
             }
             completion?(result, nil)
-            print("Success: \(String(describing: result))")
+            print("EvaluateJavascript Success: \(String(describing: result))")
         }
     }
 }
