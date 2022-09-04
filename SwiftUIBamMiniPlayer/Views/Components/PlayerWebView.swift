@@ -12,7 +12,6 @@ struct PlayerWebView: UIViewRepresentable {
     
     let url: String
     private let observable = WebViewURLObservable()
-    private let webView: WKWebView = WKWebView(frame: .zero, configuration: WebViewConfig.getConfig())
     
     // Observe the target's value change
     var observer: NSKeyValueObservation? {
@@ -38,12 +37,12 @@ struct PlayerWebView: UIViewRepresentable {
         
         do {
             let htmlString = try NSString(contentsOfFile: htmlPath!, encoding: String.Encoding.utf8.rawValue)
-            webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
+            PlayerWebViewInstance.shared.webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
         } catch {
             // catch error
         }
         
-        return webView
+        return PlayerWebViewInstance.shared.webView
     }
     
     // MARK: - UIViewRepresentable
@@ -64,8 +63,22 @@ struct PlayerWebView: UIViewRepresentable {
         //        }
     }
     
+}
+
+// MARK:  WKWebViewのURLが変わったこと（WebView内画面遷移）を検知するための `ObservableObject`
+private class WebViewURLObservable: ObservableObject {
+    @Published var instance: NSKeyValueObservation?
+}
+
+class PlayerWebViewInstance {
+    let webView: WKWebView = WKWebView(frame: .zero, configuration: WebViewConfig.getConfig())
+    
+    // MARK: - Singleton instance
+    static let shared = PlayerWebViewInstance()
+    private init() {}
+    
     // This function is used to communicate message to the JS
-    private func evaluateJavascript(_ javascript: String, sourceURL: String? = nil, completion: ((_ result: Any? , _ error: String?) -> Void)? = nil) {
+    public func evaluateJavascript(_ javascript: String, sourceURL: String? = nil, completion: ((_ result: Any? , _ error: String?) -> Void)? = nil) {
         webView.evaluateJavaScript(javascript) { (result, error) in
             guard result != nil else {
                 print("error \(String(describing: error))")
@@ -76,12 +89,6 @@ struct PlayerWebView: UIViewRepresentable {
             print("Success: \(String(describing: result))")
         }
     }
-    
-}
-
-// MARK:  WKWebViewのURLが変わったこと（WebView内画面遷移）を検知するための `ObservableObject`
-private class WebViewURLObservable: ObservableObject {
-    @Published var instance: NSKeyValueObservation?
 }
 
 // MARK: - Create WebView config

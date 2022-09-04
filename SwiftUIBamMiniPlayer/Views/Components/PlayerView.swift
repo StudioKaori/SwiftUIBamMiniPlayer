@@ -51,7 +51,11 @@ struct PlayerView: View {
                         self.location = newLocation
                 }))
                 .onTapGesture {
-                    if playerStatus.isPlayerMinimised {playerStatus.isPlayerMinimised = false}
+                    if playerStatus.isPlayerMinimised {
+                        playerStatus.isPlayerMinimised = false
+                        PlayerWebViewInstance.shared.evaluateJavascript("showUI()")
+                        //PlayerWebView.webView.evaluateJavaScript("")
+                    }
                 }
                 .ignoresSafeArea()
             
