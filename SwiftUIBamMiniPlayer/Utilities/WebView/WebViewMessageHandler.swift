@@ -31,10 +31,9 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
         switch eventName {
             // MARK: - Handle "Close"
         case "player.EVENT.CLOSE":
-            // Add your handler methods if needed
-            // As an example we invoke the close() method
-            //close()
             print(body["eventName"] ?? "Default Event Name")
+            PlayerStatus.shared.isPlayerViewVisible = false
+            PlayerStatus.shared.isPlayerMinimised = false
             
             // MARK: - Handle "Ready"
         case "player.EVENT.READY":
