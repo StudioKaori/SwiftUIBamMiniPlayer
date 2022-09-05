@@ -37,9 +37,8 @@ struct HomePageView: View {
             } //: Navigation View
             
             // Player
-            if (playerStatus.isPlayerViewVisible) {
-                PlayerView()
-            }
+            PlayerView()
+
             
         } //: Zstack
     }
