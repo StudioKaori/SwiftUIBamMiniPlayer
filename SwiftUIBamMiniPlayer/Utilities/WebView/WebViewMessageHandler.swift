@@ -10,6 +10,9 @@ import WebKit
 
 class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
     // MARK: - Properties
+    
+    // To handle the product tapped in the different class
+    weak var messageHandlerDelegate: MessageHandlerDelegate?
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
