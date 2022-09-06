@@ -26,57 +26,65 @@ struct PlayerView: View {
     
     // MARK: - Body
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            ZStack(alignment: .topTrailing) {
-                PlayerWebViewWrapperView(url: playerUrl)
+        ZStack {
+            if (PlayerStatus.shared.isPlayerViewVisible) {
+                //PlayerViewWrapper()
                 
-                // player close button for miniplayer
-                if playerStatus.isPlayerMinimised {
-                    Button(action: {
-                        PlayerWebView.shared.playerClose()
-                    }, label: {
-                        Image(systemName: "xmark.circle")
-                            .foregroundColor(.white)
-                            .font(.system(size: 30))
-                            .padding(5)
-                    })
-                }
-            }
-                .frame(width: playerStatus.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: playerStatus.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
-                .cornerRadius(playerStatus.isPlayerMinimised ? 10 : 0)
-                .position(playerStatus.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
-                .gesture(
-                    DragGesture().onChanged({ value in
-                        var newLocation: CGPoint = value.location
+                ZStack(alignment: .topLeading) {
+                    ZStack(alignment: .topTrailing) {
+                        PlayerWebViewWrapperView(url: playerUrl)
                         
-                        if value.location.x < miniPlayerPositionLeadingX {
-                            newLocation.x = miniPlayerPositionLeadingX
+                        // player close button for miniplayer
+                        if playerStatus.isPlayerMinimised {
+                            Button(action: {
+                                PlayerWebView.shared.playerClose()
+                            }, label: {
+                                Image(systemName: "xmark.circle")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 30))
+                                    .padding(5)
+                            })
                         }
-                        if value.location.y < miniPlayerPositionLeadingY {
-                            newLocation.y = miniPlayerPositionLeadingY
-                        }
-                        if value.location.x > miniPlayerPositionTrailingX  {
-                            newLocation.x = miniPlayerPositionTrailingX
-                        }
-                        if value.location.y > miniPlayerPositionTrailingY  {
-                            newLocation.y = miniPlayerPositionTrailingY
-                        }
-                        
-                        self.location = newLocation
-                }))
-                .onTapGesture {
-                    if playerStatus.isPlayerMinimised {
-                        playerStatus.isPlayerMinimised = false
-                        PlayerWebView.shared.evaluateJavascript("showUI()")
-                        //PlayerWebView.webView.evaluateJavaScript("")
                     }
-                }
-                .ignoresSafeArea()
+                    .frame(width: playerStatus.isPlayerMinimised ? miniPlayerWidth : UIScreen.main.bounds.width, height: playerStatus.isPlayerMinimised ? miniPlayerHeight : UIScreen.main.bounds.height)
+                    .cornerRadius(playerStatus.isPlayerMinimised ? 10 : 0)
+                    .position(playerStatus.isPlayerMinimised ? location : CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2))
+                    .gesture(
+                        DragGesture().onChanged({ value in
+                            var newLocation: CGPoint = value.location
+                            
+                            if value.location.x < miniPlayerPositionLeadingX {
+                                newLocation.x = miniPlayerPositionLeadingX
+                            }
+                            if value.location.y < miniPlayerPositionLeadingY {
+                                newLocation.y = miniPlayerPositionLeadingY
+                            }
+                            if value.location.x > miniPlayerPositionTrailingX  {
+                                newLocation.x = miniPlayerPositionTrailingX
+                            }
+                            if value.location.y > miniPlayerPositionTrailingY  {
+                                newLocation.y = miniPlayerPositionTrailingY
+                            }
+                            
+                            self.location = newLocation
+                        }))
+                    .onTapGesture {
+                        if playerStatus.isPlayerMinimised {
+                            playerStatus.isPlayerMinimised = false
+                            PlayerWebView.shared.evaluateJavascript("showUI()")
+                            //PlayerWebView.webView.evaluateJavaScript("")
+                        }
+                    }
+                    .ignoresSafeArea()
+                } //: Zstuck
+            } //: Zstuck
         }
+        
+        
     }
 }
 
-struct PlayerView_Previews: PreviewProvider {
+struct PlayerViewWrapper_Previews: PreviewProvider {
     static var previews: some View {
         PlayerView()
     }

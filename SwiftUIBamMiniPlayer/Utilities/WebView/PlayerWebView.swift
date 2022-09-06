@@ -27,16 +27,27 @@ class PlayerWebView {
         }
     }
     
-    // Close the player and webview
+    /// Close the player and webview
     public func playerOpen() {
         PlayerStatus.shared.isPlayerViewVisible = true
     }
     
-    // Close the player and webview
+    /// Close the player and webview
     public func playerClose() {
         PlayerStatus.shared.isPlayerViewVisible = false
         PlayerStatus.shared.isPlayerMinimised = false
     }
+    
+    /// Minimise the player
+    public func playerMinimise() {
+        PlayerStatus.shared.isPlayerMinimised = true
+    }
+    
+    /// Make the player full size. To open the player, you need to call playerOpen first.
+    public func playerMakeFullSize() {
+        PlayerStatus.shared.isPlayerMinimised = false
+    }
+    
 }
 
 // MARK: - Create WebView config
