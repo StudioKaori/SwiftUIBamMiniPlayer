@@ -11,3 +11,6 @@ import SwiftUI
 let miniPlayerWidth: CGFloat = 200
 let miniPlayerHeight: CGFloat = 300
 let miniPlayerMarginFromEdge: CGFloat = 20
+
+// MARK: - Delegate instance
+

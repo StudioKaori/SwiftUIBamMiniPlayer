@@ -114,9 +114,10 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
             else { return }
             
             //print("sku: \(sku), title: \(title), url: \(url)")
-            PlayerStatus.shared.currentProduct = Product(sku: sku, title: title, url: url)
+            //PlayerStatus.shared.currentProduct = Product(sku: sku, title: title, url: url)
             PlayerStatus.shared.isPlayerMinimised = true
-            PlayerStatus.shared.isChildViewVisible = true
+            messageHandlerDelegate?.playerProductTapped(productData: Product(sku: sku, title: title, url: url))
+            //PlayerStatus.shared.isChildViewVisible = true
 
             
         default:

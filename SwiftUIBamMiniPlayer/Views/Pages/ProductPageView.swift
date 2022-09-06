@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ProductPageView: View {
     // MARK: - Properties
-    @StateObject private var playerStatus = PlayerStatus.shared
+    @StateObject private var playerMessageHandler = PlayerMessageHandler.shared
     
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Product SKU: " + playerStatus.currentProduct.sku)
+            Text("Product SKU: " + playerMessageHandler.currentProduct.sku)
                 .padding()
-            Text("Product Title: " + playerStatus.currentProduct.title)
+            Text("Product Title: " + playerMessageHandler.currentProduct.title)
                 .padding()
-            Text("Product URL: " + playerStatus.currentProduct.url)
+            Text("Product URL: " + playerMessageHandler.currentProduct.url)
                 .padding()
         }
         

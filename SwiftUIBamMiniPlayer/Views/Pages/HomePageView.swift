@@ -10,6 +10,7 @@ import SwiftUI
 struct HomePageView: View {
     // MARK: - Properties
     @StateObject private var playerStatus = PlayerStatus.shared
+    @StateObject private var playerMessageHandler = PlayerMessageHandler.shared
     
     // MARK: - Body
     var body: some View {
@@ -30,7 +31,7 @@ struct HomePageView: View {
                         
                     })
                     
-                    NavigationLink(destination: ProductPageView(), isActive: $playerStatus.isChildViewVisible, label: {
+                    NavigationLink(destination: ProductPageView(), isActive: $playerMessageHandler.isChildViewVisible, label: {
                         EmptyView()
                     })
                 } //: VStack
