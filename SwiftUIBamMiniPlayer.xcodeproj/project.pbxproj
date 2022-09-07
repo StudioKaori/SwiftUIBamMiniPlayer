@@ -21,6 +21,8 @@
 		43801D4728C3B090001C2048 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43801D4628C3B090001C2048 /* README.md */; };
 		43801D4A28C3DCFD001C2048 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4928C3DCFD001C2048 /* Product.swift */; };
 		43801D5028C49218001C2048 /* PlayerWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43801D4F28C49218001C2048 /* PlayerWebView.swift */; };
+		43B8B85828C74F97004C7925 /* MessageHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B8B85728C74F97004C7925 /* MessageHandlerDelegate.swift */; };
+		43B8B85C28C752E4004C7925 /* PlayerMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B8B85B28C752E4004C7925 /* PlayerMessageHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		43801D4628C3B090001C2048 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		43801D4928C3DCFD001C2048 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		43801D4F28C49218001C2048 /* PlayerWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWebView.swift; sourceTree = "<group>"; };
+		43B8B85728C74F97004C7925 /* MessageHandlerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHandlerDelegate.swift; sourceTree = "<group>"; };
+		43B8B85B28C752E4004C7925 /* PlayerMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMessageHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			children = (
 				43801D5228C4932D001C2048 /* WebView */,
 				43801D2B28BFEE82001C2048 /* Constant.swift */,
+				43B8B85B28C752E4004C7925 /* PlayerMessageHandler.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				43801D4F28C49218001C2048 /* PlayerWebView.swift */,
 				43801D4328C3AC73001C2048 /* WebViewMessageHandler.swift */,
+				43B8B85728C74F97004C7925 /* MessageHandlerDelegate.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43801D2A28BE64AD001C2048 /* PlayerWebViewWrapperView.swift in Sources */,
+				43B8B85828C74F97004C7925 /* MessageHandlerDelegate.swift in Sources */,
 				43801D1B28BE633D001C2048 /* SwiftUIBamMiniPlayerApp.swift in Sources */,
 				43801D4A28C3DCFD001C2048 /* Product.swift in Sources */,
 				43801D3728C14767001C2048 /* ProductPageView.swift in Sources */,
@@ -250,6 +257,7 @@
 				43801D5028C49218001C2048 /* PlayerWebView.swift in Sources */,
 				43801D2C28BFEE82001C2048 /* Constant.swift in Sources */,
 				43801D4228C3AA08001C2048 /* PlayerStatus.swift in Sources */,
+				43B8B85C28C752E4004C7925 /* PlayerMessageHandler.swift in Sources */,
 				43801D3C28C14B32001C2048 /* HomePageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

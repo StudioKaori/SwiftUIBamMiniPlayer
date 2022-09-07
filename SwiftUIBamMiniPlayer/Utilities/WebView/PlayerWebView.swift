@@ -65,8 +65,13 @@ private class WebViewConfig {
         
         // Javascript post message handler
         let handler = WebViewMessageHandler()
+        
+        // MessangeHandler delegate, to delegate the product tapped method to the other class
+        handler.messageHandlerDelegate = PlayerMessageHandler.shared
+        
         configuration.userContentController.add(handler, name: "bambuserEventHandler")
         
         return configuration
     }
 }
+
