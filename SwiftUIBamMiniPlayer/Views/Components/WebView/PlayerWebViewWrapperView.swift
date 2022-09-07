@@ -23,24 +23,27 @@ struct PlayerWebViewWrapperView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
                 
         // load local player.html
-        let theFileName = ("player" as NSString).lastPathComponent
-        let htmlPath = Bundle.main.path(forResource: theFileName, ofType: "html")
-        let folderPath = Bundle.main.bundlePath
-        let baseUrl = URL(fileURLWithPath: folderPath, isDirectory: true)
-        
-        // inject JS to capture console.log output and send to iOS
-        //        let source = "function captureLog(msg) { window.webkit.messageHandlers.logHandler.postMessage(msg); } window.console.log = captureLog;"
-        //        let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
-        //        webView.configuration.userContentController.addUserScript(script)
-        //        // register the bridge script that listens for the output
-        //        webView.configuration.userContentController.add(handler, name: "logHandler")
-        
-        do {
-            let htmlString = try NSString(contentsOfFile: htmlPath!, encoding: String.Encoding.utf8.rawValue)
-            PlayerWebView.shared.webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
-        } catch {
-            // catch error
+        guard let path: String = Bundle.main.path(forResource: "player", ofType: "html") else {
+            // to do throw error instead of returning error
+            return PlayerWebView.shared.webView
         }
+            let localHTMLUrl = URL(fileURLWithPath: path, isDirectory: false)
+        PlayerWebView.shared.webView.loadFileURL(localHTMLUrl, allowingReadAccessTo: localHTMLUrl)
+  
+        
+//        let theFileName = ("player" as NSString).lastPathComponent
+//        let htmlPath = Bundle.main.path(forResource: theFileName, ofType: "html")
+//        let folderPath = Bundle.main.bundlePath
+//        let baseUrl = URL(fileURLWithPath: folderPath, isDirectory: true)
+//
+//        do {
+//
+//            let htmlString = try NSString(contentsOfFile: htmlPath!, encoding: String.Encoding.utf8.rawValue)
+//
+//            PlayerWebView.shared.webView.loadHTMLString(htmlString as String, baseURL: baseUrl)
+//        } catch {
+//            // catch error
+//        }
         
         return PlayerWebView.shared.webView
     }

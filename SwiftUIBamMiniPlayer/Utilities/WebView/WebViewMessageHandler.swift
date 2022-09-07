@@ -15,6 +15,7 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
     weak var messageHandlerDelegate: MessageHandlerDelegate?
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(message.body)
         
         guard message.name == "bambuserEventHandler" else {
             print("No handler for this message: \(message)")
@@ -113,15 +114,24 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
 
             else { return }
             
-            //print("sku: \(sku), title: \(title), url: \(url)")
+            print("sku: \(sku), title: \(title), url: \(url)")
             //PlayerStatus.shared.currentProduct = Product(sku: sku, title: title, url: url)
             PlayerStatus.shared.isPlayerMinimised = true
             messageHandlerDelegate?.playerProductTapped(productData: Product(sku: sku, title: title, url: url))
             //PlayerStatus.shared.isChildViewVisible = true
 
+        case "getPlayerSettings":
+            let script = "setPlayerSettings(\"\(playerCurrency)\",\"\(playerLocal)\",\"\(showID)\")"
+            print("script: \(script)")
+            PlayerWebView.shared.webView.evaluateJavaScript(script)
+            
+        case "MessageFromJS":
+            guard let message = body["message"] as? String else { return }
+            print("MessageFromJS: \(message)")
             
         default:
             print("eventName", "This event does not have a handler for event \(eventName)!")
         }
     }
 }
+
