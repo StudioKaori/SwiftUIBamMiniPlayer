@@ -10,7 +10,6 @@ import SwiftUI
 // MARK: - Player settings
 let playerLocal: String = "en-US"
 let playerCurrency: String = "USD"
-let showID: String = "eP398lEZRHz6JWVpQ9uT"
 
 // MARK: - Properties
 let miniPlayerWidth: CGFloat = 200

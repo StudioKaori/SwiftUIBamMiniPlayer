@@ -28,7 +28,8 @@ class PlayerWebView {
     }
     
     /// Close the player and webview
-    public func playerOpen() {
+    public func playerOpen(showID: String) {
+        PlayerStatus.shared.showID = showID
         PlayerStatus.shared.isPlayerViewVisible = true
     }
     

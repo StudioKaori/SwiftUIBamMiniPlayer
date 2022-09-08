@@ -121,7 +121,7 @@ class WebViewMessageHandler: NSObject, WKScriptMessageHandler {
             //PlayerStatus.shared.isChildViewVisible = true
 
         case "getPlayerSettings":
-            let script = "setPlayerSettings(\"\(playerCurrency)\",\"\(playerLocal)\",\"\(showID)\")"
+            let script = "setPlayerSettings(\"\(playerCurrency)\",\"\(playerLocal)\",\"\(PlayerStatus.shared.showID)\")"
             print("script: \(script)")
             PlayerWebView.shared.webView.evaluateJavaScript(script)
             

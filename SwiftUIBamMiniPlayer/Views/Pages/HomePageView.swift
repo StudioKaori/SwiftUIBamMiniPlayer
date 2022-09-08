@@ -25,7 +25,7 @@ struct HomePageView: View {
                     .padding()
                     
                     Button(action: {
-                        playerStatus.isPlayerViewVisible.toggle()
+                        PlayerWebView.shared.playerOpen(showID: "sXzOW4o0zpDXFIu7zg9S")
                     }, label: {
                         Text(playerStatus.isPlayerViewVisible ? "Close the player" : "Open the player")
                         
