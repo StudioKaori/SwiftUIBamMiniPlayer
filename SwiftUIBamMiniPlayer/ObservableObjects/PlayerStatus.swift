@@ -11,6 +11,7 @@ final class PlayerStatus: ObservableObject {
     // MARK: - Properties
     @Published var isPlayerViewVisible: Bool = false
     @Published var isPlayerMinimised: Bool = false
+    @Published var showID: String = ""
     
     // MARK: - Singleton instance
     static let shared = PlayerStatus()

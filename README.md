@@ -9,6 +9,27 @@ Open the project with Xcode
 
 # Update
 
+#### 2022/09/08 update
+### Published variables and methods
+Published variables
+
+PlayerStatus.shared.isPlayerViewVisible: Bool = false
+PlayerStatus.shared.isPlayerMinimised: Bool = false
+PlayerStatus.shared.showID: String = “"
+
+Player methods
+
+PlayerWebView.shared.playerOpen(showID: String)
+PlayerWebView.shared.playerClose()
+PlayerWebView.shared.playerMinimise()
+PlayerWebView.shared.playerMakeFullSize()
+
+### Issue: set a show ID from the openPlayer method
+
+#### -> To make this solution to the Swift package, the user can open the player with any showID.
+Updated the method openPlayer to .openPlayer(showID), so that the user can open the player with any show ID.
+
+
 #### 2022/09/04 update
 ### Issue: How to evaluate JS from the all Swift UI components?
 
